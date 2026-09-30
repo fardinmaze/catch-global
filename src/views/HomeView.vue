@@ -206,7 +206,7 @@ const leaders = team.groups[0].people
 
 .work-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 48px 32px; }
 .products { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-.people { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.people { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
 
 .why { display: grid; grid-template-columns: 0.9fr 1.3fr; gap: clamp(40px, 7vw, 110px); align-items: start; }
 .why__intro { position: sticky; top: 120px; display: grid; gap: 28px; justify-items: start; }

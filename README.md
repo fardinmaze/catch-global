@@ -5,7 +5,7 @@ Public website for **Catch Global Pty Ltd** (ABN 19 702 264 122), built from the
 
 - **Stack:** Vue 3 + Vite + vue-router, plain CSS tokens (`src/styles/main.css`)
 - **Pages:** `/` · `/about` · `/services` · `/technology` · `/our-work` · `/team` · `/contact` · `/privacy` · `/terms`
-- **Brand:** official logo (blue/gold globe) exported to `public/brand/`; favicons from the globe symbol. Accents royal blue `#1e5fd6` + gold `#f2b632`
+- **Brand:** Catch Global horizontal logo (original in `docs/brand/`) exported to `public/brand/`; favicons from the C + globe mark. Black wordmark, so it always sits on white (navbar, footer plate). Accents royal blue `#1e5fd6` + gold `#f2b632`
 - **Content:** all copy lives in `src/data/site.js`, taken from the pack. Internal notes and anything marked “permission required” are left out.
 
 ## Run
@@ -43,7 +43,7 @@ default → hover (colour fill sweeps in, arrow nudges, lift/shadow) → active 
 | Live domain, then add sitemap + absolute OG/schema URLs | `index.html`, `public/robots.txt` |
 | Approved project images (covers are typographic placeholders) | `WorkCard.vue` |
 | Product screenshots/logos for SMICEE, NextCart, QuickCV | `ProductCard.vue` |
-| Team headshots: 7 taken from catchbangladesh.com/career/team (`public/team/`); 9 still initials (Aktaruzzaman Rasel, Md Rakibul Islam, Rafid Rahman, DM Bikash, Tazkir Taher, Mahbub Elahi Rizvee, Rahat Howlader, Shamiul Islam, Bashar Billah). Mustakim Hassan + Samiur held until titles confirmed; Md Siam Mahmud held for title check | `data/site.js` → `team` (add `photo`) |
+| Team: photos shown for Leadership & Operations only (6, in `public/team/`; originals in `docs/team-photos/`). Technology and Creative use initials cards by request. Bios for Mustakim Hasan, Md Rakibul Islam (CBO), MD Siam Mahmud and MD Fardin Mazumder are placeholders: confirm wording | `data/site.js` → `team` |
 | Client logos (names only for now: permission needed) | `ClientStrip.vue` |
 | Fully Promoted SEO figures: held until client approval | `data/site.js` → `work` |
 | Budget and timing ranges in the form are placeholders: confirm with management | `data/site.js` → `enquiry` |

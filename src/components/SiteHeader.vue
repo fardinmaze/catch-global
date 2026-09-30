@@ -22,8 +22,8 @@ watch(() => route.fullPath, () => (open.value = false))
 
 <template>
   <header class="header" :class="{ 'is-scrolled': scrolled, 'is-open': open }">
-    <!-- Floating light bar: the official logo (navy/blue/gold) needs a light
-         surface to read properly, so the nav sits on its own pale "plate". -->
+    <!-- Floating light bar: the logo's black wordmark needs a light surface,
+         so the nav sits on its own white "plate". -->
     <div class="container">
       <div class="header__bar">
         <RouterLink to="/" class="header__logo" aria-label="Catch Global home"><BrandLogo /></RouterLink>
@@ -96,8 +96,9 @@ watch(() => route.fullPath, () => (open.value = false))
   box-shadow: 0 1px 0 rgba(255, 255, 255, 0.8) inset, 0 20px 44px -16px rgba(0, 0, 0, 0.7);
 }
 
-.header__logo { display: flex; align-items: center; flex: none; }
-.header__logo :deep(.logo--header) { height: 54px; }
+/* Logo is 38px tall, centred in the 64px bar (4px minimum padding top and bottom). */
+.header__logo { display: flex; align-items: center; flex: none; align-self: stretch; padding: 4px 0 4px 12px; }
+.header__logo :deep(.logo--header) { height: 38px; }
 
 .header__nav { display: flex; gap: 2px; }
 
@@ -162,6 +163,5 @@ watch(() => route.fullPath, () => (open.value = false))
 }
 @media (max-width: 600px) {
   .header__bar { padding: 0 8px 0 14px; }
-  .header__logo :deep(.logo--header) { height: 50px; }
 }
 </style>

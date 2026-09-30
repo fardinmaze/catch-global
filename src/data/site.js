@@ -401,8 +401,7 @@ export const workFilters = [
 ]
 
 // Team (pack 9). Only cards whose public name/title are settled are published.
-// Photos: studio headshots from catchbangladesh.com/career/team where the person
-// appears there; everyone else keeps an initials card until a headshot is supplied.
+// Photos are shown for Leadership & Operations only; other groups use initials cards.
 export const team = {
   title: 'A multidisciplinary team for technology, digital growth and creative delivery.',
   body: 'Catch Global coordinates client strategy, project management and delivery through a team covering business operations, software development, digital marketing, branding, design and media production. Team members are brought into projects according to the skills required.',
@@ -411,34 +410,31 @@ export const team = {
       id: 'leadership',
       label: 'Leadership & Operations',
       people: [
-        { name: 'Aktaruzzaman Rasel', role: 'Managing Director', bio: 'Leads business administration, client onboarding and commercial coordination for Catch Global.' },
-        { name: 'Md Rakibul Iqbal', photo: '/team/md-rakibul-iqbal.webp', role: 'Director, Operations', bio: 'Coordinates project scoping, client communication and delivery across digital, technology and creative work.' },
+        { name: 'Aktaruzzaman Rasel', photo: '/team/aktaruzzaman-rasel.webp', role: 'Managing Director', bio: 'Leads business administration, client onboarding and commercial coordination for Catch Global.' },
+        { name: 'Md Rakibul Iqbal', photo: '/team/md-rakibul-iqbal.webp', role: 'Director', bio: 'Coordinates project scoping, client communication and delivery across digital, technology and creative work.' },
+        { name: 'Mustakim Hasan', photo: '/team/mustakim-hasan.webp', role: 'Director', bio: 'Senior leadership and strategic direction across Catch Global’s client work.' },
         { name: 'Biswajit Kumar Paul', photo: '/team/biswajit-kumar-paul.webp', role: 'Vice President', bio: 'Supports senior coordination and delivery.' },
-        { name: 'Md Rakibul Islam', role: 'Chief Technology Officer', bio: 'Technology leadership and support for Catch Global operations.' },
+        { name: 'MD Samiur Rahman Bhuiya', photo: '/team/samiur-rahman-bhuiya.webp', role: 'Chief Technology Officer', bio: 'Leads software engineering and platform/application delivery.' },
+        { name: 'Md Rakibul Islam', photo: '/team/md-rakibul-islam.webp', role: 'Chief Business Officer', bio: 'Business development and commercial growth for Catch Global.' },
       ],
     },
     {
       id: 'technology',
       label: 'Technology',
       people: [
-        { name: 'MD Samiur Rahman Bhuiya', photo: '/team/samiur-rahman-bhuiya.webp', role: 'Senior Software Engineer', bio: 'Software engineering and platform/application delivery.' },
-        { name: 'Mostafa Musab Naveed', photo: '/team/mostafa-musab-naveed.webp', role: 'Software Engineer', bio: 'Backend engineering with experience in Python/Django and AI/system development.' },
-        { name: 'Rafid Rahman', role: 'Software Engineer', bio: 'Mobile and application development, including Flutter-based field and asset-management systems.' },
-        { name: 'DM Bikash', role: 'Software Engineer', bio: 'Software/application development support.' },
-        { name: 'Md Rakib Hasan', photo: '/team/md-rakib-hasan.webp', role: 'Software Engineer', bio: 'Software/application development support.' },
+        { name: 'Mostafa Musab Naveed', role: 'Software Engineer', bio: 'Backend engineering with experience in Python/Django and AI/system development.' },
+        { name: 'MD Siam Mahmud', role: 'Software Engineer', bio: 'Software/application development.' },
+        { name: 'Md Rakib Hasan', role: 'Software Engineer', bio: 'Software/application development support.' },
         { name: 'Tazkir Taher', role: 'Junior Software Developer', bio: 'Backend development, APIs and AI-powered product work, including QuickCV.' },
-        { name: 'Mahbub Elahi Rizvee', role: 'Junior Software Engineer', bio: 'Software/application development support.' },
+        { name: 'MD Fardin Mazumder', role: 'Product Analyst', bio: 'Product analysis, requirements and user-focused product planning.' },
+        { name: 'Rafid Rahman', role: 'Software Engineer', bio: 'Mobile and application development, including Flutter-based field and asset-management systems.' },
       ],
     },
     {
       id: 'creative',
       label: 'Creative',
       people: [
-        { name: 'S.A. Sadik', photo: '/team/sa-sadik.webp', role: 'Chief Brand Officer', bio: 'Brand strategy, creative direction and visual/technical solution development.' },
-        { name: 'Arman Ahmed Jisan', photo: '/team/arman-ahmed-jisan.webp', role: 'Group Creative Director', bio: 'Visual storytelling, animation, campaign creative and creative-team leadership.' },
-        { name: 'Rahat Howlader', role: 'Editor / Filmmaker', bio: 'Video editing, filmmaking, production planning and documentary/corporate visual work.' },
-        { name: 'Shamiul Islam', role: 'Graphic Designer & Photographer', bio: 'Graphic design, photography and visual production.' },
-        { name: 'Bashar Billah', role: 'Senior Visualizer', bio: 'Visual design and creative production support.' },
+        { name: 'Arman Ahmed Jisan', role: 'Group Creative Director', bio: 'Visual storytelling, animation, campaign creative and creative-team leadership.' },
       ],
     },
   ],

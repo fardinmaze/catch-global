@@ -1,6 +1,7 @@
 <script setup>
-// Official Catch Global logo (supplied 30 Sep 2026). Resized exports only —
-// the mark itself is unchanged.
+// Catch Global logo (horizontal lockup, supplied 30 Sep 2026; original in
+// docs/brand/). The wordmark is black, so it always sits on a light surface:
+// the white navbar, or the white plate used in the footer.
 defineProps({
   size: { type: String, default: 'header' }, // 'header' | 'large'
 })
@@ -10,25 +11,33 @@ defineProps({
   <img
     v-if="size === 'header'"
     class="logo logo--header"
-    src="/brand/catch-global-logo-176.webp"
-    alt="Catch Global Pty Ltd"
-    width="209"
-    height="176"
+    src="/brand/logo-h112.webp"
+    alt="Catch Global"
+    width="309"
+    height="112"
   />
-  <img
-    v-else
-    class="logo logo--large"
-    src="/brand/catch-global-logo-480.webp"
-    alt="Catch Global Pty Ltd"
-    width="571"
-    height="480"
-    loading="lazy"
-  />
+  <span v-else class="logo-plate">
+    <img
+      class="logo logo--large"
+      src="/brand/logo-h240.webp"
+      alt="Catch Global"
+      width="661"
+      height="240"
+      loading="lazy"
+    />
+  </span>
 </template>
 
 <style scoped>
-.logo { width: auto; }
-.logo--header { height: 74px; }
-.logo--large { height: clamp(120px, 14vw, 180px); }
-@media (max-width: 600px) { .logo--header { height: 60px; } }
+.logo { width: auto; display: block; }
+.logo--header { height: 38px; }
+.logo--large { height: clamp(52px, 5vw, 64px); }
+.logo-plate {
+  display: inline-flex;
+  padding: 16px 22px;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 18px 40px -20px rgba(0, 0, 0, 0.6);
+}
+
 </style>
