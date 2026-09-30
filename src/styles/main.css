@@ -1,0 +1,272 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap');
+
+:root {
+  /* Surfaces — deep navy-charcoal to sit with the official logo */
+  --bg: #0a0e17;
+  --bg-2: #111827;
+  --bg-3: #1a2334;
+  --light: #f5f6f8;
+  --light-2: #e7eaf0;
+  --line: rgba(255, 255, 255, 0.1);
+  --line-dark: rgba(10, 14, 23, 0.1);
+
+  /* Brand accents taken from the Catch Global logo */
+  --brand: #1e5fd6;         /* royal blue */
+  --brand-bright: #5aa8ff;  /* highlight blue (text on dark) */
+  --brand-deep: #0b2a6b;    /* navy */
+  --gold: #f2b632;
+  --gold-hover: #ffc94d;
+  --gold-press: #d99c14;
+
+  --text: #f2f4f8;
+  --muted: #9aa3b5;
+  --ink: #0a0e17;
+  --ink-muted: #545d70;
+
+  --font-display: 'Space Grotesk', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+
+  --radius: 20px;
+  --radius-sm: 12px;
+  --container: 1240px;
+  --gutter: clamp(16px, 4vw, 40px);
+  --section: clamp(80px, 11vw, 150px);
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --header-h: 84px; /* scrolled header height, for sticky sub-bars */
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 96px; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; cursor: pointer; }
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+p { margin: 0; }
+::selection { background: var(--gold); color: var(--ink); }
+
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+.section { padding-block: var(--section); }
+.section--light { background: var(--light); color: var(--ink); }
+.section--alt { background: var(--bg-2); }
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--brand-bright);
+  margin-bottom: 20px;
+}
+.eyebrow::before {
+  content: '';
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--gold);
+}
+.section--light .eyebrow { color: var(--brand); }
+
+.h2 { font-size: clamp(34px, 5vw, 62px); }
+.lead { font-size: clamp(17px, 1.4vw, 19px); color: var(--muted); max-width: 60ch; }
+.section--light .lead { color: var(--ink-muted); }
+
+.section-head {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 40px;
+  align-items: end;
+  margin-bottom: clamp(48px, 6vw, 80px);
+}
+@media (max-width: 860px) { .section-head { grid-template-columns: 1fr; gap: 20px; } }
+
+/* ---------------------------------------------------------------
+   Buttons — every variant defines default, hover, focus-visible,
+   active (pressed) and disabled states.
+   --------------------------------------------------------------- */
+.btn {
+  --btn-bg: transparent;
+  --btn-fg: var(--text);
+  --btn-border: transparent;
+  --btn-fill: transparent;       /* colour that sweeps in on hover */
+  --btn-fill-fg: var(--btn-fg);
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 52px;
+  padding: 14px 26px;
+  border-radius: 999px;
+  border: 1px solid var(--btn-border);
+  background: var(--btn-bg);
+  color: var(--btn-fg);
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    color 0.35s var(--ease),
+    border-color 0.35s var(--ease),
+    box-shadow 0.35s var(--ease),
+    transform 0.2s var(--ease);
+}
+/* hover fill: a pill that grows from the left */
+.btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background: var(--btn-fill);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.45s var(--ease);
+}
+.btn svg { flex: none; transition: transform 0.4s var(--ease); }
+
+.btn:hover { color: var(--btn-fill-fg); }
+.btn:hover::before { transform: scaleX(1); }
+.btn:hover svg { transform: translateX(4px); }
+.btn:active { transform: scale(0.97); }
+.btn:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+.btn:disabled, .btn[aria-disabled='true'] {
+  opacity: 0.45;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Primary — gold, the main action (Get a Quote) */
+.btn--primary {
+  --btn-bg: var(--gold);
+  --btn-fg: var(--ink);
+  --btn-fill: var(--gold-hover);
+  box-shadow: 0 0 0 0 rgba(242, 182, 50, 0);
+}
+.btn--primary:hover { box-shadow: 0 10px 30px -10px rgba(242, 182, 50, 0.7); }
+.btn--primary:active { --btn-bg: var(--gold-press); --btn-fill: var(--gold-press); box-shadow: none; }
+
+/* Secondary — outline on dark, fills white on hover */
+.btn--ghost {
+  --btn-border: rgba(255, 255, 255, 0.22);
+  --btn-fg: var(--text);
+  --btn-fill: var(--text);
+  --btn-fill-fg: var(--ink);
+}
+.btn--ghost:hover { --btn-border: var(--text); }
+.btn--ghost:active { --btn-fill: #d9dde6; }
+
+/* Blue — brand action on light or dark surfaces */
+.btn--brand {
+  --btn-bg: var(--brand);
+  --btn-fg: #fff;
+  --btn-fill: var(--brand-deep);
+}
+.btn--brand:hover { box-shadow: 0 10px 30px -10px rgba(30, 95, 214, 0.8); }
+
+/* Dark — on light or gold backgrounds */
+.btn--dark {
+  --btn-bg: var(--ink);
+  --btn-fg: #fff;
+  --btn-fill: var(--brand);
+}
+.btn--dark:active { --btn-fill: var(--brand-deep); }
+
+.btn--sm { min-height: 44px; padding: 10px 18px; font-size: 15px; }
+.btn--block { width: 100%; }
+
+/* Soft light pooling under a CTA, slowly breathing */
+.btn--glow { overflow: visible; }
+.btn--glow::after {
+  content: '';
+  position: absolute;
+  z-index: -2;
+  left: 12%; right: 12%; bottom: -10px;
+  height: 22px;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(242, 182, 50, 0.8), rgba(90, 168, 255, 0.35) 60%, transparent);
+  filter: blur(8px);
+  animation: glow 4s ease-in-out infinite alternate;
+}
+/* keep the sweep clipped even though the glow is allowed outside */
+.btn--glow::before { clip-path: inset(0 round 999px); }
+@keyframes glow {
+  from { opacity: 0.45; transform: scaleX(0.8); }
+  to { opacity: 1; transform: scaleX(1.05); }
+}
+
+/* Text link with arrow */
+.link-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-display);
+  font-weight: 500;
+  color: var(--gold);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s, color 0.3s;
+}
+.link-arrow svg { transition: transform 0.4s var(--ease); }
+.link-arrow:hover { border-color: currentColor; }
+.link-arrow:hover svg { transform: translate(3px, -3px); }
+.section--light .link-arrow { color: var(--brand); }
+
+/* Film grain over the whole page: adds texture and hides gradient banding */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+  opacity: 0.07;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Scroll reveal (see directives/reveal.js) */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.9s var(--ease), transform 0.9s var(--ease);
+  transition-delay: var(--delay, 0ms);
+}
+[data-reveal].is-visible { opacity: 1; transform: none; }
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  [data-reveal] { opacity: 1; transform: none; }
+}
+
+:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; border-radius: 4px; }

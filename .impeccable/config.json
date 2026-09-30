@@ -1,0 +1,32 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "overused-font",
+        "value": "space grotesk",
+        "createdAt": "2026-09-30T09:57:37.918Z",
+        "reason": "User confirmed space grotesk is intentional (client-chosen reference theme font)"
+      },
+      {
+        "rule": "gradient-text",
+        "value": "*",
+        "files": [
+          "src/components/HeroSection.vue"
+        ],
+        "createdAt": "2026-09-30T09:57:38.007Z",
+        "reason": "User confirmed hero headline gradient fill is intentional (matches requested Framer reference)"
+      },
+      {
+        "rule": "gradient-text",
+        "value": "*",
+        "files": [
+          "src/views/HomeView.vue"
+        ],
+        "createdAt": "2026-09-30T11:03:49.101Z",
+        "reason": "User confirmed hero headline gradient fill is intentional (moved from HeroSection.vue)"
+      }
+    ]
+  }
+}

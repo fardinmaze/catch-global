@@ -1,0 +1,36 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Environment (enquiry endpoint etc.)
+.env
+.env.*
+
+# Impeccable design-hook local state (shared config.json is committed)
+.impeccable/hook.cache.json
+.impeccable/config.local.json
+
+# Never publish internal documents from public/ (the build pack lives in docs/)
+public/*.docx
+public/*.pdf
