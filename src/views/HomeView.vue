@@ -1,5 +1,5 @@
 <script setup>
-import { home, work, products, team } from '../data/site'
+import { home, work, products, team, company } from '../data/site'
 import AppIcon from '../components/AppIcon.vue'
 import GradientField from '../components/GradientField.vue'
 import ClientStrip from '../components/ClientStrip.vue'
@@ -29,9 +29,12 @@ const leaders = team.groups[0].people
             <RouterLink to="/our-work" class="btn btn--ghost">Explore Our Work</RouterLink>
           </div>
         </div>
-        <ul class="hero__support" v-reveal="320">
-          <li v-for="s in home.hero.support" :key="s">{{ s }}</li>
-        </ul>
+        <div class="hero__support" v-reveal="320">
+          <p class="hero__reach"><AppIcon name="globe" :size="20" />{{ company.reach }}</p>
+          <ul>
+            <li v-for="s in home.hero.support" :key="s">{{ s }}</li>
+          </ul>
+        </div>
       </div>
     </section>
 
@@ -157,7 +160,7 @@ const leaders = team.groups[0].people
   min-height: 100svh;
   display: flex;
   align-items: flex-end;
-  padding: 150px 0 72px;
+  padding: calc(150px + var(--topbar-h)) 0 72px;
 }
 .hero__aurora {
   position: absolute;
@@ -186,16 +189,20 @@ const leaders = team.groups[0].people
 }
 .hero__actions { display: flex; flex-wrap: wrap; gap: 12px; }
 .hero__support {
-  list-style: none;
   margin: 64px 0 0;
   padding: 24px 0 0;
   border-top: 1px solid var(--line);
   display: flex;
   flex-wrap: wrap;
-  gap: 12px 28px;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px 40px;
   color: var(--muted);
   font-size: 15px;
 }
+.hero__reach { display: flex; align-items: flex-start; gap: 12px; max-width: 62ch; color: var(--text); }
+.hero__reach svg { flex: none; color: var(--gold); margin-top: 2px; }
+.hero__support ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 12px 28px; }
 .hero__support li { display: inline-flex; align-items: center; gap: 10px; }
 .hero__support li::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--gold); }
 

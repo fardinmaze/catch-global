@@ -12,13 +12,15 @@ export const company = {
   locationLong: 'Springfield Lakes, Queensland 4300, Australia',
   region: 'Brisbane / Queensland',
   since: 'March 2026',
-  // Recommended in the pack but NOT yet confirmed as an active mailbox.
-  // Swap for the live address once Microsoft 365 is set up.
-  email: 'enquiries@catchglobal.com.au',
-  emailConfirmed: false,
+  // Main contact email, confirmed by the client (1 Oct 2026).
+  email: 'info@catchglobal.com.au',
+  emailConfirmed: true,
   // Approved business phone not supplied yet — leave empty to hide it.
   phone: '',
   tagline: 'Technology, digital growth, brand and creative services for Australian businesses and organisations.',
+  // Top bar badge (client request, 1 Oct 2026). Original artwork in docs/brand/.
+  veteranOwned: 'Veteran-Owned Australian Business',
+  reach: 'Australian-led digital and technology services with delivery capability across Australia, Bangladesh, Europe and the USA.',
 }
 
 export const nav = [

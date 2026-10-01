@@ -4,7 +4,7 @@
 // never produces prices, delivery dates or guarantees. An AI model can later sit
 // behind the same steps once approved FAQs and routing are in place.
 import { ref, reactive, computed, nextTick, watch } from 'vue'
-import { enquiry } from '../data/site'
+import { enquiry, company } from '../data/site'
 import { submitEnquiry } from '../lib/enquiry'
 import { assistant } from '../lib/assistant'
 import AppIcon from './AppIcon.vue'
@@ -120,8 +120,9 @@ async function confirm() {
     step.value = 'done'
     say(`${enquiry.confirmTitle} ${enquiry.confirmBody}`)
     if (via === 'mailto') say('Your email app has opened with these details — please press send there to complete the enquiry.')
+    say(`You can also reach the team directly at ${company.email}.`)
   } catch {
-    error.value = 'Sorry, the enquiry could not be sent. Please try again, or use the form on the Contact page.'
+    error.value = `Sorry, the enquiry could not be sent. Please try again, or email ${company.email}.`
   } finally {
     sending.value = false
   }

@@ -46,7 +46,7 @@ const maskStyle = computed(() => ({
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  padding: calc(100px + clamp(56px, 8vw, 110px)) 0 clamp(64px, 8vw, 110px);
+  padding: calc(100px + var(--topbar-h) + clamp(56px, 8vw, 110px)) 0 clamp(64px, 8vw, 110px);
   border-bottom: 1px solid var(--line);
 }
 .page-hero--deep { background: linear-gradient(180deg, #0b1430 0%, var(--bg) 100%); }

@@ -1,6 +1,6 @@
 <script setup>
 import { reactive, ref } from 'vue'
-import { enquiry } from '../data/site'
+import { enquiry, company } from '../data/site'
 import { submitEnquiry } from '../lib/enquiry'
 import AppIcon from './AppIcon.vue'
 
@@ -36,6 +36,7 @@ function reset() {
       <h2>{{ enquiry.confirmTitle }}</h2>
       <p>{{ enquiry.confirmBody }}</p>
       <p v-if="via === 'mailto'" class="enquiry__note">Your email app has opened with the enquiry filled in. Please press send there to complete it.</p>
+      <p v-if="company.emailConfirmed" class="enquiry__note">Anything to add? Email <a :href="`mailto:${company.email}`">{{ company.email }}</a>.</p>
       <button type="button" class="btn btn--ghost btn--sm" @click="reset">Send another enquiry</button>
     </div>
 
@@ -152,6 +153,7 @@ function reset() {
 .enquiry__done h2 { font-size: clamp(26px, 3vw, 34px); }
 .enquiry__done p { color: var(--muted); max-width: 52ch; }
 .enquiry__note { font-size: 14px; color: var(--brand-bright) !important; }
+.enquiry__note a { text-decoration: underline; text-underline-offset: 3px; }
 
 @media (max-width: 560px) { .form__row { grid-template-columns: 1fr; } }
 </style>

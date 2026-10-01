@@ -1,7 +1,7 @@
 <script setup>
 import { ref, onMounted, onUnmounted, watch } from 'vue'
 import { useRoute } from 'vue-router'
-import { nav } from '../data/site'
+import { nav, company } from '../data/site'
 import BrandLogo from './BrandLogo.vue'
 import AppIcon from './AppIcon.vue'
 
@@ -22,6 +22,19 @@ watch(() => route.fullPath, () => (open.value = false))
 
 <template>
   <header class="header" :class="{ 'is-scrolled': scrolled, 'is-open': open }">
+    <!-- Slim top bar: slides up out of view once the page scrolls. -->
+    <div class="topbar">
+      <div class="container topbar__inner">
+        <p class="topbar__badge">
+          <img src="/brand/veteran-badge-white-h96.webp" width="30" height="32" alt="" />
+          <span>{{ company.veteranOwned }}</span>
+        </p>
+        <a v-if="company.emailConfirmed" class="topbar__email" :href="`mailto:${company.email}`">
+          <AppIcon name="mail" :size="15" />{{ company.email }}
+        </a>
+      </div>
+    </div>
+
     <!-- Floating light bar: the logo's black wordmark needs a light surface,
          so the nav sits on its own white "plate". -->
     <div class="container">
@@ -60,13 +73,42 @@ watch(() => route.fullPath, () => (open.value = false))
   position: fixed;
   inset: 0 0 auto;
   z-index: 50;
-  padding: 10px 0;
+  padding: 0 0 10px;
   border-bottom: 1px solid transparent;
-  transition: background-color 0.4s, border-color 0.4s;
+  transition: top 0.4s var(--ease), background-color 0.4s, border-color 0.4s;
 }
+/* Scrolled: lift the header by the top bar's height so only the nav docks.
+   (Animating `top`, not transform, keeps the fixed mobile drawer viewport-sized.) */
+.header.is-scrolled:not(.is-open) { top: calc(-1 * var(--topbar-h)); }
+
+.topbar {
+  position: relative;
+  z-index: 3;
+  height: var(--topbar-h);
+  margin-bottom: 10px;
+  background: #05070d;
+  border-bottom: 1px solid var(--line);
+  font-size: 13px;
+}
+.topbar__inner { height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.topbar__badge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text);
+  white-space: nowrap;
+}
+.topbar__badge img { width: 30px; height: 32px; flex: none; }
+.topbar__email { display: inline-flex; align-items: center; gap: 8px; color: var(--muted); transition: color 0.3s; }
+.topbar__email svg { color: var(--gold); }
+.topbar__email:hover { color: var(--text); }
 /* Once scrolled, the band behind the floating bar turns solid so page content
    never shows through around it (and sticky sub-bars can dock beneath it).
-   Geometry never changes (10 + 64 + 10 = 84px = --header-h); only colour animates. */
+   Docked geometry is fixed (10 + 64 + 10 = 84px = --header-h); only colour animates. */
 .header.is-scrolled {
   background: rgba(10, 14, 23, 0.94);
   backdrop-filter: blur(14px);
@@ -136,7 +178,7 @@ watch(() => route.fullPath, () => (open.value = false))
   inset: 0;
   z-index: 1;
   background: var(--bg);
-  padding: 112px var(--gutter) 32px;
+  padding: calc(112px + var(--topbar-h)) var(--gutter) 32px;
   display: flex;
   flex-direction: column;
   gap: 4px;
@@ -163,5 +205,8 @@ watch(() => route.fullPath, () => (open.value = false))
 }
 @media (max-width: 600px) {
   .header__bar { padding: 0 8px 0 14px; }
+  .topbar__email { display: none; }
+  .topbar__inner { justify-content: center; }
+  .topbar__badge { font-size: 11.5px; letter-spacing: 0.08em; }
 }
 </style>

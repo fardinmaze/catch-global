@@ -20,7 +20,7 @@ defineProps({
 </template>
 
 <style scoped>
-.legal { padding: calc(88px + clamp(56px, 7vw, 100px)) 0 clamp(80px, 10vw, 140px); }
+.legal { padding: calc(88px + var(--topbar-h) + clamp(56px, 7vw, 100px)) 0 clamp(80px, 10vw, 140px); }
 .legal__inner { max-width: 820px; }
 .legal h1 { font-size: clamp(36px, 5vw, 60px); letter-spacing: -0.03em; }
 .legal__meta { margin-top: 16px; color: var(--muted); }

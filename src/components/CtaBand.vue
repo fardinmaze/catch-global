@@ -1,6 +1,6 @@
 <script setup>
 // Closing "Get a Quote" call to action — used at the end of every main page.
-import { cta } from '../data/site'
+import { cta, company } from '../data/site'
 import AppIcon from './AppIcon.vue'
 import GradientField from './GradientField.vue'
 
@@ -19,6 +19,10 @@ const blobs = [
         <div class="cta__copy">
           <h2>{{ cta.title }}</h2>
           <p>{{ cta.body }}</p>
+          <p v-if="company.emailConfirmed" class="cta__email">
+            <AppIcon name="mail" :size="18" />
+            <span>Or email <a :href="`mailto:${company.email}`">{{ company.email }}</a></span>
+          </p>
         </div>
         <div class="cta__actions">
           <RouterLink to="/contact" class="btn btn--primary btn--glow">{{ cta.button }} <AppIcon name="arrow" :size="18" /></RouterLink>
@@ -47,6 +51,10 @@ const blobs = [
 .cta__copy { display: grid; gap: 20px; }
 .cta h2 { font-size: clamp(30px, 4vw, 52px); max-width: 20ch; }
 .cta p { color: #c9d2e3; max-width: 56ch; font-size: 17px; }
+.cta .cta__email { display: flex; align-items: center; gap: 10px; font-size: 15px; color: var(--muted); }
+.cta__email svg { color: var(--gold); flex: none; }
+.cta__email a { color: var(--text); text-decoration: underline; text-decoration-color: rgba(242, 182, 50, 0.6); text-underline-offset: 4px; transition: text-decoration-color 0.3s; }
+.cta__email a:hover { text-decoration-color: var(--gold); }
 .cta__actions { display: flex; flex-wrap: wrap; gap: 12px; }
 
 @media (max-width: 860px) { .cta__panel { grid-template-columns: 1fr; } }

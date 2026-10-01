@@ -12,6 +12,10 @@ const links = nav.filter((n) => n.to !== '/')
         <div class="footer__brand">
           <BrandLogo size="large" />
           <p><strong>Catch Global</strong> — {{ company.tagline }}</p>
+          <p class="footer__veteran">
+            <img src="/brand/veteran-badge-white-h96.webp" width="61" height="64" alt="" />
+            <span>{{ company.veteranOwned }}</span>
+          </p>
         </div>
 
         <div class="footer__col">
@@ -52,6 +56,17 @@ const links = nav.filter((n) => n.to !== '/')
 .footer__brand { display: grid; gap: 24px; align-content: start; justify-items: start; }
 .footer__brand p { color: var(--muted); max-width: 38ch; font-size: 15px; }
 .footer__brand strong { color: var(--text); font-weight: 600; }
+.footer__brand .footer__veteran {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: var(--text);
+  font-family: var(--font-display);
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.footer__veteran img { width: 61px; height: 64px; flex: none; }
 .footer__col { display: grid; gap: 12px; align-content: start; font-size: 15px; }
 .footer__col h2 {
   font-family: var(--font-display);

@@ -32,7 +32,7 @@ const softBlobs = [
 
         <ul class="contact__list" v-reveal="280">
           <li><AppIcon name="pin" /><span><strong>Location</strong>{{ company.locationLong }}</span></li>
-          <li v-if="company.emailConfirmed"><AppIcon name="mail" /><a :href="`mailto:${company.email}`">{{ company.email }}</a></li>
+          <li v-if="company.emailConfirmed"><AppIcon name="mail" /><span><strong>Email</strong><a :href="`mailto:${company.email}`">{{ company.email }}</a></span></li>
           <li v-if="company.phone"><AppIcon name="phone" /><a :href="`tel:${company.phone.replace(/\s/g, '')}`">{{ company.phone }}</a></li>
           <li><AppIcon name="building" /><span><strong>{{ company.legalName }}</strong>ABN {{ company.abn }} · ACN {{ company.acn }}</span></li>
         </ul>
