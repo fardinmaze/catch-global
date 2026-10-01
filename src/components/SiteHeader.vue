@@ -85,9 +85,10 @@ watch(() => route.fullPath, () => (open.value = false))
   position: relative;
   z-index: 3;
   height: var(--topbar-h);
+  padding-block: 4px; /* 40px content row + 4px above and below */
   margin-bottom: 10px;
-  background: #05070d;
-  border-bottom: 1px solid var(--line);
+  background: var(--brand-deep);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
   font-size: 13px;
 }
 .topbar__inner { height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
@@ -103,7 +104,7 @@ watch(() => route.fullPath, () => (open.value = false))
   white-space: nowrap;
 }
 .topbar__badge img { width: 30px; height: 32px; flex: none; }
-.topbar__email { display: inline-flex; align-items: center; gap: 8px; color: var(--muted); transition: color 0.3s; }
+.topbar__email { display: inline-flex; align-items: center; gap: 8px; color: #c4d3f2; transition: color 0.3s; }
 .topbar__email svg { color: var(--gold); }
 .topbar__email:hover { color: var(--text); }
 /* Once scrolled, the band behind the floating bar turns solid so page content

@@ -33,7 +33,7 @@
   --section: clamp(80px, 11vw, 150px);
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --header-h: 84px; /* scrolled header height, for sticky sub-bars */
-  --topbar-h: 40px; /* veteran-owned bar above the nav; scrolls away */
+  --topbar-h: 48px; /* veteran-owned bar above the nav; scrolls away */
 }
 
 *, *::before, *::after { box-sizing: border-box; }
