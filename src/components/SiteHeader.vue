@@ -115,6 +115,10 @@ watch(() => route.fullPath, () => (open.value = false))
   backdrop-filter: blur(14px);
   border-color: var(--line);
 }
+/* backdrop-filter makes the header the containing block of its fixed children, which
+   would squash the full-screen mobile drawer into the header's own height. Drop it
+   (and the blur) while the drawer is open; the drawer covers the page anyway. */
+.header.is-scrolled.is-open { backdrop-filter: none; }
 
 .header__bar {
   position: relative;
