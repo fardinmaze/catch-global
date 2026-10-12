@@ -109,7 +109,7 @@ watch(() => route.fullPath, () => (open.value = false))
 .topbar__email:hover { color: var(--text); }
 /* Once scrolled, the band behind the floating bar turns solid so page content
    never shows through around it (and sticky sub-bars can dock beneath it).
-   Docked geometry is fixed (10 + 64 + 10 = 84px = --header-h); only colour animates. */
+   Docked geometry is fixed (10 + 52 + 10 = 72px = --header-h); only colour animates. */
 .header.is-scrolled {
   background: rgba(10, 14, 23, 0.94);
   backdrop-filter: blur(14px);
@@ -123,8 +123,8 @@ watch(() => route.fullPath, () => (open.value = false))
   align-items: center;
   justify-content: space-between;
   gap: 20px;
-  height: 64px;
-  padding: 0 10px 0 18px;
+  height: 52px;
+  padding: 0 8px 0 14px;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.97);
   backdrop-filter: blur(16px) saturate(1.4);
@@ -139,18 +139,18 @@ watch(() => route.fullPath, () => (open.value = false))
   box-shadow: 0 1px 0 rgba(255, 255, 255, 0.8) inset, 0 20px 44px -16px rgba(0, 0, 0, 0.7);
 }
 
-/* Logo is 38px tall, centred in the 64px bar (4px minimum padding top and bottom). */
-.header__logo { display: flex; align-items: center; flex: none; align-self: stretch; padding: 4px 0 4px 12px; }
-.header__logo :deep(.logo--header) { height: 38px; }
+/* Logo is 36px tall, centred in the 52px bar (4px minimum padding top and bottom). */
+.header__logo { display: flex; align-items: center; flex: none; align-self: stretch; padding: 4px 0 4px 8px; }
+.header__logo :deep(.logo--header) { height: 36px; }
 
 .header__nav { display: flex; gap: 2px; }
 
 /* Nav link states: default · hover · active page · focus */
 .header__link {
   position: relative;
-  padding: 9px 14px;
+  padding: 7px 12px;
   border-radius: 999px;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 500;
   color: #4a5366;
   transition: color 0.25s, background 0.25s;
@@ -159,11 +159,11 @@ watch(() => route.fullPath, () => (open.value = false))
 .header__link.router-link-exact-active { color: #fff; background: var(--brand-deep); }
 .header__link:focus-visible { outline-color: var(--brand); }
 
-.header__cta { flex: none; }
+.header__cta { flex: none; min-height: 38px; padding: 7px 16px; font-size: 14px; }
 
 .header__toggle {
   display: none;
-  width: 48px; height: 48px;
+  width: 40px; height: 40px;
   border-radius: 50%;
   place-items: center;
   background: var(--ink);

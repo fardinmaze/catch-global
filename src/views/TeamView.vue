@@ -15,6 +15,7 @@ const blurbs = {
   leadership: 'Client onboarding, project scoping and delivery coordination.',
   technology: 'Software, platforms, mobile apps and AI product work.',
   creative: 'Brand direction, visual production, film and design.',
+  business: 'Business development, partnerships and product coordination.',
 }
 function show(id) {
   tab.value = id
@@ -56,7 +57,7 @@ const groups = computed(() => (tab.value === 'all' ? team.groups : team.groups.f
 
         <div v-for="g in groups" :key="g.id" class="group">
           <h2 class="group__title">{{ g.label }} <span>{{ g.people.length }}</span></h2>
-          <div class="grid" :class="{ 'grid--three': g.id === 'leadership' }">
+          <div class="grid">
             <PersonCard v-for="p in g.people" :key="p.name" :person="p" />
           </div>
         </div>
@@ -130,9 +131,8 @@ const groups = computed(() => (tab.value === 'all' ? team.groups : team.groups.f
 }
 .group__title span { font-size: 15px; color: var(--muted); font-weight: 500; }
 .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-.grid--three { grid-template-columns: repeat(3, 1fr); }
 
 @media (max-width: 1000px) { .grid { grid-template-columns: repeat(3, 1fr); } }
-@media (max-width: 760px) { .grid, .grid--three { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 560px) { .grid, .grid--three { grid-template-columns: 1fr; gap: 12px; } }
+@media (max-width: 760px) { .grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 560px) { .grid { grid-template-columns: 1fr; gap: 12px; } }
 </style>

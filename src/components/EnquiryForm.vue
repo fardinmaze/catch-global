@@ -4,6 +4,8 @@ import { enquiry, company } from '../data/site'
 import { submitEnquiry } from '../lib/enquiry'
 import AppIcon from './AppIcon.vue'
 
+defineProps({ compact: Boolean })
+
 const blank = () => ({
   name: '', organisation: '', email: '', phone: '', service: '', need: '',
   existing: '', timing: '', budget: '', source: '', consent: false, website: '',
@@ -30,7 +32,7 @@ function reset() {
 </script>
 
 <template>
-  <div class="enquiry">
+  <div class="enquiry" :class="{ 'enquiry--compact': compact }">
     <div v-if="state === 'done'" class="enquiry__done" role="status">
       <span class="enquiry__tick"><AppIcon name="check" :size="28" /></span>
       <h2>{{ enquiry.confirmTitle }}</h2>
@@ -154,6 +156,10 @@ function reset() {
 .enquiry__done p { color: var(--muted); max-width: 52ch; }
 .enquiry__note { font-size: 14px; color: var(--brand-bright) !important; }
 .enquiry__note a { text-decoration: underline; text-underline-offset: 3px; }
+
+/* Inside the floating panel: no card chrome, single column, id-safe spacing */
+.enquiry--compact .form, .enquiry--compact .enquiry__done { background: none; backdrop-filter: none; border: 0; padding: 0; gap: 14px; }
+.enquiry--compact .form__row { grid-template-columns: 1fr; gap: 14px; }
 
 @media (max-width: 560px) { .form__row { grid-template-columns: 1fr; } }
 </style>

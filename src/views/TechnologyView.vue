@@ -118,7 +118,7 @@ const heroBlobs = [
 @media (max-width: 960px) { .code { transform: none; } }
 @media (max-width: 560px) { .code__body { font-size: 12.5px; padding: 18px; } }
 
-.products { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.products { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
 .exp { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
 .exp__card {
   border: 1px solid var(--line);
@@ -139,6 +139,6 @@ const heroBlobs = [
 .evidence li { display: flex; gap: 10px; align-items: flex-start; color: #c3cbdb; font-size: 15px; }
 .evidence svg { color: var(--gold); flex: none; margin-top: 4px; }
 
-@media (max-width: 1000px) { .products { grid-template-columns: 1fr 1fr; } .evidence ul { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 1000px) { .evidence ul { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 760px) { .products, .exp, .evidence ul { grid-template-columns: 1fr; } }
 </style>

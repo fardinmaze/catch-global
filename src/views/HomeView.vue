@@ -71,27 +71,8 @@ const leaders = team.groups[0].people
       </div>
     </section>
 
-    <!-- Selected work -->
-    <section class="section section--alt">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <p class="eyebrow" v-reveal>Selected work</p>
-            <h2 class="h2" v-reveal="80">{{ home.work.title }}</h2>
-          </div>
-          <div class="section-head__side" v-reveal="160">
-            <p class="lead">{{ home.work.body }}</p>
-            <RouterLink to="/our-work" class="link-arrow">View all work <AppIcon name="arrow-up-right" :size="18" /></RouterLink>
-          </div>
-        </div>
-        <div class="work-grid">
-          <WorkCard v-for="(w, i) in featured" :key="w.slug" :item="w" :index="i" v-reveal="(i % 2) * 100" />
-        </div>
-      </div>
-    </section>
-
     <!-- Products -->
-    <section class="section">
+    <section class="section section--alt">
       <div class="container">
         <div class="section-head">
           <div>
@@ -105,6 +86,25 @@ const leaders = team.groups[0].people
         </div>
         <div class="products">
           <ProductCard v-for="(p, i) in products" :key="p.name" :product="p" v-reveal="i * 100" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Selected work -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow" v-reveal>Selected work</p>
+            <h2 class="h2" v-reveal="80">{{ home.work.title }}</h2>
+          </div>
+          <div class="section-head__side" v-reveal="160">
+            <p class="lead">{{ home.work.body }}</p>
+            <RouterLink to="/our-work" class="link-arrow">View all work <AppIcon name="arrow-up-right" :size="18" /></RouterLink>
+          </div>
+        </div>
+        <div class="work-grid">
+          <WorkCard v-for="(w, i) in featured" :key="w.slug" :item="w" :index="i" v-reveal="(i % 2) * 100" />
         </div>
       </div>
     </section>
@@ -212,8 +212,8 @@ const leaders = team.groups[0].people
 .section-head__side { display: grid; gap: 20px; justify-items: start; }
 
 .work-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 48px 32px; }
-.products { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-.people { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.products { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+.people { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
 
 .why { display: grid; grid-template-columns: 0.9fr 1.3fr; gap: clamp(40px, 7vw, 110px); align-items: start; }
 .why__intro { position: sticky; top: 120px; display: grid; gap: 28px; justify-items: start; }
@@ -237,8 +237,8 @@ const leaders = team.groups[0].people
 .why__list h3 { font-size: 22px; margin-bottom: 8px; }
 .why__list p { color: var(--ink-muted); }
 
+@media (max-width: 1180px) { .products { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 1000px) {
-  .products { grid-template-columns: 1fr 1fr; }
   .people { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 860px) {

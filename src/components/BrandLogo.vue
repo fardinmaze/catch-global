@@ -1,6 +1,6 @@
 <script setup>
-// Catch Global logo (horizontal lockup, supplied 30 Sep 2026; original in
-// docs/brand/). The wordmark is black, so it always sits on a light surface:
+// Catch Global logo (green C + gold globe lockup, supplied 12 Oct 2026; original in
+// docs/brand/catch-global-logo-new-original.png; trimmed exports in public/brand/). The wordmark is black, so it always sits on a light surface:
 // the white navbar, or the white plate used in the footer.
 defineProps({
   size: { type: String, default: 'header' }, // 'header' | 'large'
@@ -13,7 +13,7 @@ defineProps({
     class="logo logo--header"
     src="/brand/logo-h112.webp"
     alt="Catch Global"
-    width="309"
+    width="308"
     height="112"
   />
   <span v-else class="logo-plate">
@@ -21,7 +21,7 @@ defineProps({
       class="logo logo--large"
       src="/brand/logo-h240.webp"
       alt="Catch Global"
-      width="661"
+      width="660"
       height="240"
       loading="lazy"
     />
@@ -30,7 +30,7 @@ defineProps({
 
 <style scoped>
 .logo { width: auto; display: block; }
-.logo--header { height: 38px; }
+.logo--header { height: 36px; }
 .logo--large { height: clamp(52px, 5vw, 64px); }
 .logo-plate {
   display: inline-flex;

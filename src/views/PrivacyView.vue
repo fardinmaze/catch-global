@@ -8,7 +8,7 @@ import LegalPage from '../components/LegalPage.vue'
     <p>{{ company.legalNameTitle }} (ABN {{ company.abn }}) (“Catch Global”, “we”, “us”) is committed to handling personal information in line with the Privacy Act 1988 (Cth) and the Australian Privacy Principles.</p>
 
     <h2>What we collect</h2>
-    <p>When you submit a project enquiry through our website form or enquiry assistant, we collect the details you provide, which may include:</p>
+    <p>When you submit a project enquiry through our website enquiry form, we collect the details you provide, which may include:</p>
     <ul>
       <li>your name, business or organisation, email address and phone number</li>
       <li>the service area you are interested in and a description of your requirement</li>
@@ -17,9 +17,6 @@ import LegalPage from '../components/LegalPage.vue'
 
     <h2>How we use it</h2>
     <p>We use enquiry information to review your requirement, contact you, prepare a proposed scope and quotation, and manage our relationship with you. We do not sell your personal information.</p>
-
-    <h2>Enquiry assistant</h2>
-    <p>The enquiry assistant is a guided form that collects the same details as our enquiry form. It does not provide prices, delivery dates or guarantees, and every enquiry is reviewed by our team.</p>
 
     <h2>Analytics and cookies</h2>
     <p>[To be completed once the analytics and tracking stack is confirmed — describe the tools used (e.g. Google Analytics 4), the data collected, cookies set and how visitors can opt out.]</p>

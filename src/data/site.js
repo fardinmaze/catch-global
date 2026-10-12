@@ -83,7 +83,7 @@ export const home = {
   },
   products: {
     title: 'Selected technology products.',
-    body: 'Explore business automation, e-commerce operations and AI-assisted career tools developed within our wider technology ecosystem.',
+    body: 'Explore business automation, e-commerce operations, fleet and workforce management and AI-assisted career tools developed within our wider technology ecosystem.',
   },
   why: [
     { icon: 'layers', title: 'Coordinated delivery', text: 'A single project conversation can connect strategy, technology, digital marketing and creative production instead of splitting the work across unrelated vendors.' },
@@ -228,6 +228,7 @@ export const technology = {
 export const products = [
   {
     name: 'SMICEE',
+    cover: 'smicee',
     suffix: 'Smart Office',
     tag: 'Business management',
     href: 'https://smicee.com/',
@@ -238,6 +239,7 @@ export const products = [
   },
   {
     name: 'NextCart',
+    cover: 'nextcart',
     suffix: '',
     tag: 'E-commerce operations',
     href: 'https://nextcart.app/',
@@ -248,6 +250,7 @@ export const products = [
   },
   {
     name: 'QuickCV',
+    cover: 'quickcv',
     suffix: '',
     tag: 'AI-assisted careers',
     href: 'https://createquickcv.com/',
@@ -255,6 +258,17 @@ export const products = [
     text: 'An AI-assisted CV and career-profile platform for job seekers.',
     features: ['ATS-friendly CV generation', 'Job-description-based CV tailoring', 'AI-assisted cover letters', 'Shareable professional profiles', 'Video resume / public profile', 'Multiple CV versions & sync'],
     blobs: [['#f2b632', 0.6, 0.5, 0.5, 0.15], ['#6a3fd8', 0.55, 0.55, 0.3, 0.85], ['#1e5fd6', 0.5, 0.5, 0.85, 0.7]],
+  },
+  {
+    name: 'ConnectAuz',
+    cover: 'connectauz',
+    suffix: '',
+    tag: 'Fleet, workforce & operations',
+    href: 'https://www.connectauz.com.au/',
+    cta: 'Explore ConnectAuz',
+    text: 'An Australian software ecosystem of four linked products for fleet, workforce, sales and project management on one connected platform, built for operations-heavy businesses.',
+    features: ['CA Fleet: real-time fleet monitoring, driver allocation and compliance', 'CA Workforce: attendance, timesheets and shift scheduling', 'CA POS: sales, payments, inventory and multi-outlet control', 'CA Project: planning, task assignment and progress tracking', 'Mobile apps and web portals', 'Custom enterprise solutions'],
+    blobs: [['#0f9d7a', 0.65, 0.5, 0.3, 0.3], ['#1e5fd6', 0.6, 0.55, 0.8, 0.65], ['#f2b632', 0.4, 0.35, 0.7, 0.15]],
   },
 ]
 
@@ -415,7 +429,8 @@ export const team = {
         { name: 'Aktaruzzaman Rasel', photo: '/team/aktaruzzaman-rasel.webp', role: 'Managing Director', bio: 'Leads business administration, client onboarding and commercial coordination for Catch Global.' },
         { name: 'Md Rakibul Iqbal', photo: '/team/md-rakibul-iqbal.webp', role: 'Director', bio: 'Coordinates project scoping, client communication and delivery across digital, technology and creative work.' },
         { name: 'Mustakim Hasan', photo: '/team/mustakim-hasan.webp', role: 'Director', bio: 'Senior leadership and strategic direction across Catch Global’s client work.' },
-        { name: 'Biswajit Kumar Paul', photo: '/team/biswajit-kumar-paul.webp', role: 'Vice President', bio: 'Supports senior coordination and delivery.' },
+        { name: 'Mahmudul Hasan', photo: '/team/mahmudul-hasan.webp', role: 'VP Strategy and Planning', bio: 'Strategy and planning across Catch Global’s client work and delivery.' },
+        { name: 'Biswajit Kumar Paul', photo: '/team/biswajit-kumar-paul.webp', role: 'VP Operations', bio: 'Supports operations, senior coordination and delivery.' },
         { name: 'MD Samiur Rahman Bhuiya', photo: '/team/samiur-rahman-bhuiya.webp', role: 'Chief Technology Officer', bio: 'Leads software engineering and platform/application delivery.' },
         { name: 'Md Rakibul Islam', photo: '/team/md-rakibul-islam.webp', role: 'Chief Business Officer', bio: 'Business development and commercial growth for Catch Global.' },
       ],
@@ -437,6 +452,19 @@ export const team = {
       label: 'Creative',
       people: [
         { name: 'Arman Ahmed Jisan', role: 'Group Creative Director', bio: 'Visual storytelling, animation, campaign creative and creative-team leadership.' },
+        { name: 'Arif Rabbani', role: 'Senior Visualizer', bio: 'Visual design and creative production within the Creative team.' },
+        { name: 'Mohammad Shalauddin Talukder', role: 'Senior Visualizer', bio: 'Visual design and creative production within the Creative team.' },
+      ],
+    },
+    {
+      id: 'business',
+      label: 'Business Development',
+      people: [
+        { name: 'Aditto Baidya Alok', role: 'Business Development Lead', bio: 'Leads business development and client partnerships.' },
+        { name: 'Nusrat Jahan Nova', role: 'Product Coordinator', bio: 'Product and project coordination within the Business Development team.' },
+        { name: 'Afrin Shanaz Asha', role: 'Product Coordinator', bio: 'Product and project coordination within the Business Development team.' },
+        { name: 'Nure Sanjida', role: 'Product Coordinator', bio: 'Product and project coordination within the Business Development team.' },
+        { name: 'Sumaiya Akter', role: 'Product Coordinator', bio: 'Product and project coordination within the Business Development team.' },
       ],
     },
   ],

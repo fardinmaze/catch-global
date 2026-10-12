@@ -1,6 +1,5 @@
 <script setup>
 import { company, enquiry } from '../data/site'
-import { openAssistant } from '../lib/assistant'
 import AppIcon from '../components/AppIcon.vue'
 import GradientField from '../components/GradientField.vue'
 import EnquiryForm from '../components/EnquiryForm.vue'
@@ -21,14 +20,6 @@ const softBlobs = [
         <h1 v-reveal="80">{{ enquiry.title }}</h1>
         <p class="lead" v-reveal="160">{{ enquiry.body }}</p>
 
-        <div class="assist" v-reveal="220">
-          <span class="assist__icon"><AppIcon name="chat" :size="22" /></span>
-          <div>
-            <strong>Prefer a guided chat?</strong>
-            <p>The enquiry assistant asks a few quick questions and sends your details to the team.</p>
-          </div>
-          <button type="button" class="btn btn--brand btn--sm" @click="openAssistant">Start chat</button>
-        </div>
 
         <ul class="contact__list" v-reveal="280">
           <li><AppIcon name="pin" /><span><strong>Location</strong>{{ company.locationLong }}</span></li>
@@ -55,21 +46,6 @@ const softBlobs = [
 .contact__grid { display: grid; grid-template-columns: 1fr 1.15fr; gap: clamp(40px, 6vw, 96px); align-items: start; }
 .contact__info { display: grid; gap: 24px; align-content: start; }
 .contact h1 { font-size: clamp(36px, 4.6vw, 60px); line-height: 1.04; letter-spacing: -0.03em; }
-
-.assist {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 14px 16px;
-  align-items: start;
-  padding: 20px;
-  border-radius: var(--radius);
-  border: 1px solid rgba(90, 168, 255, 0.3);
-  background: rgba(30, 95, 214, 0.1);
-}
-.assist__icon { width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; background: var(--gold); color: var(--ink); }
-.assist strong { font-family: var(--font-display); }
-.assist p { color: var(--muted); font-size: 14px; margin-top: 4px; }
-.assist .btn { grid-column: 2; justify-self: start; }
 
 .contact__list { list-style: none; margin: 8px 0 0; padding: 0; display: grid; gap: 18px; }
 .contact__list li { display: flex; gap: 14px; align-items: flex-start; color: var(--muted); }

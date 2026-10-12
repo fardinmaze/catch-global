@@ -5,7 +5,7 @@ Public website for **Catch Global Pty Ltd** (ABN 19 702 264 122), built from the
 
 - **Stack:** Vue 3 + Vite + vue-router, plain CSS tokens (`src/styles/main.css`)
 - **Pages:** `/` · `/about` · `/services` · `/technology` · `/our-work` · `/team` · `/contact` · `/privacy` · `/terms`
-- **Brand:** Catch Global horizontal logo (original in `docs/brand/`) exported to `public/brand/`; favicons from the C + globe mark. Black wordmark, so it always sits on white (navbar, footer plate). Accents royal blue `#1e5fd6` + gold `#f2b632`
+- **Brand:** Catch Global logo (green C + gold globe, supplied 12 Oct 2026; original in `docs/brand/catch-global-logo-new-original.png`), trimmed and exported to `public/brand/`; favicons, social card and touch icon are regenerated from it. Black wordmark, so it always sits on white (navbar, footer plate). The page palette is still royal blue `#1e5fd6` + gold `#f2b632`
 - **Veteran-owned badge:** the slim top bar above the nav and the footer both show “Veteran-Owned Australian Business”. Original artwork is in `docs/brand/veteran-owned-business-logo-original.jpeg`. Transparent exports are in `public/brand/veteran-badge-*.webp` (white for dark surfaces, ink for light ones). The bar scrolls away, so only the 84px nav docks (`--topbar-h` in `main.css`)
 - **Content:** all copy lives in `src/data/site.js`, taken from the pack. Internal notes and anything marked “permission required” are left out.
 
@@ -22,11 +22,10 @@ The site uses HTML5 history routing, so the host must rewrite unknown paths to `
 
 ## Enquiries
 
-- The **Get a Quote form** (`/contact`) and the **enquiry assistant** (floating button, every page) both call `src/lib/enquiry.js`.
+- The **Get a Quote form** (`/contact`) and the **Send an enquiry** panel (floating button, every page, same form) both call `src/lib/enquiry.js`.
 - Set `VITE_ENQUIRY_ENDPOINT` (a form service, CRM webhook or API) in `.env` to POST enquiries as JSON.
   Without it, submissions fall back to opening a pre-filled email to `company.email` (**info@catchglobal.com.au**, confirmed by the client 1 Oct 2026).
-- The assistant is a **scripted** version of the pack’s chatbot script: it never quotes prices, dates or guarantees.
-  An AI model can be put behind the same steps later once FAQs and routing are approved.
+- There is no chatbot: the floating button just opens the same enquiry form in a panel.
 
 ## Button states
 
@@ -42,8 +41,13 @@ default → hover (colour fill sweeps in, arrow nudges, lift/shadow) → active 
 | Privacy Policy + Terms: drafts with bracketed gaps (analytics, processors). Legal review required | `src/views/PrivacyView.vue`, `TermsView.vue` |
 | Live domain, then add sitemap + absolute OG/schema URLs | `index.html`, `public/robots.txt` |
 | Approved project images (covers are typographic placeholders) | `WorkCard.vue` |
-| Product screenshots/logos for SMICEE, NextCart, QuickCV | `ProductCard.vue` |
-| Team: photos shown for Leadership & Operations only (6, in `public/team/`; originals in `docs/team-photos/`). Technology and Creative use initials cards by request. Bios for Mustakim Hasan, Md Rakibul Islam (CBO), MD Siam Mahmud and MD Fardin Mazumder are placeholders: confirm wording | `data/site.js` → `team` |
+| Product cover art is in (`public/products/`, originals in `docs/brand/project-covers/`); screenshots can be added later | `ProductCard.vue` |
+| Team: photos shown for Leadership & Operations only (7, in `public/team/`; originals in `docs/team-photos/`). Technology and Creative use initials cards by request. Bios for Mustakim Hasan, Md Rakibul Islam (CBO), MD Siam Mahmud and MD Fardin Mazumder are placeholders: confirm wording | `data/site.js` → `team` |
 | Client logos (names only for now: permission needed) | `ClientStrip.vue` |
 | Fully Promoted SEO figures: held until client approval | `data/site.js` → `work` |
 | Budget and timing ranges in the form are placeholders: confirm with management | `data/site.js` → `enquiry` |
+
+## Full portfolio (Our Work)
+
+- `src/data/portfolio.json` holds all 382 projects from catchbangladesh.com (fetched 12 Oct 2026; raw copy with CSV in `docs/portfolio-catchbangladesh/`). The Our Work page loads it lazily and groups it by category.
+- Thumbnails, PDFs and videos are linked from `api.catchbangladesh.com` and YouTube rather than copied into this repo, so they depend on that site staying up.
